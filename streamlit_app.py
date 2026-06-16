@@ -1,7 +1,9 @@
 import streamlit as st
 import faiss, pickle, os
 from sentence_transformers import SentenceTransformer
-
+import os
+if not os.path.exists("index"):
+    import build_index
 # ✅ Gemini import
 import google.generativeai as genai  
 
