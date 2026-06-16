@@ -81,7 +81,7 @@ max_chars = st.sidebar.slider(
 # ---------------------------
 # Main Page
 # ---------------------------
-st.title("🌐 Knowledge Chatbot — By Saad CCP Project")
+st.title("🌐 Knowledge Chatbot — By Shazil CCP Project")
 st.markdown(f"**Mode:** {mode}")
 
 query = st.text_input("Enter your question:")
