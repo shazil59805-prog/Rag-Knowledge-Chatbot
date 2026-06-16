@@ -109,7 +109,7 @@ if st.button("Get Answer"):
                     st.error("❌ Gemini API key not found. Please set GEMINI_API_KEY in secrets.")
                 else:
                     genai.configure(api_key=api_key)
-                    model = genai.GenerativeModel("gemini-1.5-flash")
+                    model = genai.GenerativeModel("gemini-2.5-flash")
 
                     # multiple answers (2 candidates) + request for links
                     resp = model.generate_content(
