@@ -4,6 +4,7 @@ from sentence_transformers import SentenceTransformer
 import os
 if not os.path.exists("index"):
     import build_index
+    build_index.build_index(data_dir="data", index_dir="index")
 # ✅ Gemini import
 import google.generativeai as genai  
 
