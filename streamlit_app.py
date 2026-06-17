@@ -101,7 +101,6 @@ if st.button("Get Answer"):
             st.subheader("📖 Local Context Retrieved")
             for rank, idx in enumerate(I[0], 1):
                 with st.expander(f"🔍 Relevant Reference Source {rank}"):
-                    # Chunks ka variable directly bina kisi slicing ke pure format mein show hoga
                     full_text = chunks[idx]
                     st.write(full_text)
                 
