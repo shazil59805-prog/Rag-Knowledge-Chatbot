@@ -93,7 +93,7 @@ if st.button("Get Answer"):
     if query.strip() == "":
         st.warning("⚠️ Please enter a question.")
     else:
-       if mode.startswith("Direct") and index is not None:
+      if mode.startswith("Direct") and index is not None:
             # Local FAISS search
             q_emb = model.encode([query], convert_to_numpy=True)
             D, I = index.search(q_emb.astype("float32"), k=n_pages)
