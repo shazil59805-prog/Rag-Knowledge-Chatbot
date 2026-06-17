@@ -98,13 +98,13 @@ if st.button("Get Answer"):
             q_emb = model.encode([query], convert_to_numpy=True)
             D, I = index.search(q_emb.astype("float32"), k=n_pages)
 
-            st.subheader("📖 Local Engine Results")
+            st.subheader("📖 Local Context Retrieved")
             for rank, idx in enumerate(I[0], 1):
-                st.markdown(f"**Result {rank}:**")
-                st.write(chunks[idx][:max_chars] + ("..." if len(chunks[idx]) > max_chars else ""))
-                st.markdown("---")
+                with st.expander(f"🔍 Relevant Reference Source {rank}"):
+                    # Is line se text ka size normal (15px) aur clean ho jayega
+                    st.markdown(f"<div style='font-size:15px; line-height:1.6; color:#1e293b;'>{chunks[idx]}</div>", unsafe_allow_html=True)
                 
-      elif mode.startswith("Gemini"):
+        elif mode.startswith("Gemini"):
             # ✅ Direct Gemini API call with 2 answers + links
             try:
                 api_key = os.environ.get("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY")
