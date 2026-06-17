@@ -36,4 +36,4 @@ if __name__ == "__main__":
     os.makedirs("data", exist_ok=True)
     os.makedirs("index", exist_ok=True)
     build_index("data", "index")
-build_index()
+
