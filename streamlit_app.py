@@ -51,30 +51,30 @@ def load_model():
 model = load_model()
 
 # ---------------------------
-# Page Config & Complete Cyber-Dark Theme Injection
+# Page Config & Orange/Amber Premium Theme Injection
 # ---------------------------
 st.set_page_config(page_title="RAG Intelligence Hub", layout="wide")
 
-# Dark CSS Matrix Engine (Only Colors Refined)
+# Amber Matrix CSS Engine
 st.markdown("""
     <style>
-    /* Premium Slate Cyber-Dark Background */
+    /* Deep Charcoal Base Background for Warm Palette Contrast */
     .stApp {
-        background-color: #0f172a !important;
+        background-color: #111622 !important;
         color: #f8fafc !important;
     }
     
-    /* Left Sidebar Deep Blue-Grey Dark Styling */
+    /* Left Sidebar Warm Obsidian Dark Styling */
     section[data-testid="stSidebar"] {
-        background-color: #0b0f19 !important;
-        border-right: 1px solid #334155 !important;
+        background-color: #0b0e14 !important;
+        border-right: 1px solid #451a03 !important; /* Subtle Dark Amber Border */
     }
     
-    /* Typography Gradient Titles */
+    /* Typography Fire Gradient Titles (Orange to Yellow Gold) */
     .main-title {
         font-size: 36px;
         font-weight: 800;
-        background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+        background: linear-gradient(90deg, #f97316, #facc15);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 5px;
@@ -85,54 +85,58 @@ st.markdown("""
         margin-bottom: 25px;
     }
     
-    /* Dynamic UI Glowing Badges */
+    /* Dynamic UI Glowing Badges (Orange & Yellow Accents) */
     .badge-local {
-        background-color: rgba(6, 182, 212, 0.15);
-        color: #22d3ee;
+        background-color: rgba(249, 115, 22, 0.12);
+        color: #fb923c;
         padding: 6px 14px;
         border-radius: 20px;
         font-weight: 600;
         font-size: 13px;
         display: inline-block;
-        border: 1px solid #0891b2;
+        border: 1px solid #c2410c;
     }
     .badge-gemini {
-        background-color: rgba(139, 92, 246, 0.15);
-        color: #ddd6fe;
+        background-color: rgba(250, 204, 21, 0.12);
+        color: #fde047;
         padding: 6px 14px;
         border-radius: 20px;
         font-weight: 600;
         font-size: 13px;
         display: inline-block;
-        border: 1px solid #6d28d9;
+        border: 1px solid #a16207;
     }
     
-    /* Input Field Theme Corrections */
+    /* Input Field Theme Corrections with Amber Focus Glow */
     .stTextInput>div>div>input {
-        background-color: #1e293b !important;
+        background-color: #1e2433 !important;
         color: #ffffff !important;
-        border: 1px solid #475569 !important;
+        border: 1px solid #4b5563 !important;
         border-radius: 6px !important;
     }
+    .stTextInput>div>div>input:focus {
+        border-color: #ea580c !important;
+        box-shadow: 0 0 0 1px #ea580c !important;
+    }
     
-    /* Process Action Button Styling */
+    /* Process Action Button Styling (Cyberpunk Orange) */
     .stButton>button {
-        background-color: #1e293b !important;
-        color: #38bdf8 !important;
-        border: 1px solid #0284c7 !important;
+        background-color: #271c19 !important;
+        color: #f97316 !important;
+        border: 1px solid #ea580c !important;
         border-radius: 6px !important;
         font-weight: 600 !important;
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background-color: #0284c7 !important;
+        background-color: #ea580c !important;
         color: #ffffff !important;
-        border-color: #38bdf8 !important;
+        border-color: #f97316 !important;
     }
 
-    /* Expander Layout Controls */
+    /* Expander Layout Controls and Borders */
     .stMarkdown div div p {
-        color: #cbd5e1 !important;
+        color: #e2e8f0 !important;
     }
     
     /* Global Component Force Overrides */
@@ -140,14 +144,19 @@ st.markdown("""
         color: #f8fafc !important;
     }
     
-    /* Response Output Box */
+    /* Response Output Box (Left Burnished Amber Border) */
     .answer-card {
-        background-color: #1e293b;
+        background-color: #1c1d24;
         padding: 16px;
         border-radius: 8px;
-        border-left: 4px solid #8b5cf6;
+        border-left: 4px solid #ea580c;
         color: #e2e8f0;
         margin-bottom: 15px;
+    }
+    
+    /* Custom Slider Accent Color Tweak via CSS Override */
+    div[data-testid="stSlider"] > div [role="slider"] {
+        background-color: #ea580c !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -155,7 +164,7 @@ st.markdown("""
 # ---------------------------
 # Sidebar UI (Clean & Modern)
 # ---------------------------
-st.sidebar.markdown("<h2 style='color: #38bdf8; font-weight:700; font-size:22px; margin-top:10px;'>⚙️ Core Engine Settings</h2>", unsafe_allow_html=True)
+st.sidebar.markdown("<h2 style='color: #f97316; font-weight:700; font-size:22px; margin-top:10px;'>⚙️ Core Engine Settings</h2>", unsafe_allow_html=True)
 
 mode = st.sidebar.radio(
     "Select System Intelligence Model:",
@@ -163,8 +172,8 @@ mode = st.sidebar.radio(
     index=0
 )
 
-st.sidebar.markdown("<br><hr style='border-color:#1e293b;'>", unsafe_allow_html=True)
-st.sidebar.markdown("<p style='font-weight:600; font-size:14px; margin-bottom:5px; color:#38bdf8 !important;'>📊 Search Fine-Tuning</p>", unsafe_allow_html=True)
+st.sidebar.markdown("<br><hr style='border-color:#2d3748;'>", unsafe_allow_html=True)
+st.sidebar.markdown("<p style='font-weight:600; font-size:14px; margin-bottom:5px; color:#facc15 !important;'>📊 Search Fine-Tuning</p>", unsafe_allow_html=True)
 
 n_pages = st.sidebar.slider(
     "Documents retrieved per query",
@@ -179,7 +188,7 @@ max_chars = st.sidebar.slider(
 # ---------------------------
 # Main Dashboard UI
 # ---------------------------
-st.markdown("<div class='main-title'>🌐 Ai Assistant PDC </div>", unsafe_allow_html=True)
+st.markdown("<div class='main-title'>🌐 PDC Distributed Architecture Knowledge Base</div>", unsafe_allow_html=True)
 st.markdown("<div class='sub-title'>Advanced Retrieval-Augmented Generation (RAG) System — Developed by Muzammil (CCP Project)</div>", unsafe_allow_html=True)
 
 # Dynamic Badge Display
@@ -207,12 +216,12 @@ if submit_btn:
             q_emb = model.encode([query], convert_to_numpy=True)
             D, I = index.search(q_emb.astype("float32"), k=n_pages)
 
-            st.markdown("<h3 style='color:#38bdf8; font-weight:700; margin-top:20px;'>📖 Retained Contextual Knowledge Base</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color:#f97316; font-weight:700; margin-top:20px;'>📖 Retained Contextual Knowledge Base</h3>", unsafe_allow_html=True)
             
             for rank, idx in enumerate(I[0], 1):
                 with st.expander(f"📂 Verified Reference Source {rank} (FAISS Vector Segment)"):
                     full_text = chunks[idx]
-                    st.markdown(f"<div style='font-size:15px; line-height:1.7; color:#cbd5e1; background-color:#111827; padding: 12px; border-radius:6px;'>{full_text}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div style='font-size:15px; line-height:1.7; color:#cbd5e1; background-color:#1c1d24; padding: 12px; border-radius:6px; border-left: 2px solid #facc15;'>{full_text}</div>", unsafe_allow_html=True)
                     
         elif mode.startswith("Gemini"):
             # ✅ Direct Gemini API call with 2 answers + links
@@ -229,7 +238,7 @@ if submit_btn:
                         generation_config={"candidate_count": 2}
                     )
 
-                    st.markdown("<h3 style='color:#c084fc; font-weight:700; margin-top:20px;'>🤖 Generative AI Synthesis (Dual Hypotheses)</h3>", unsafe_allow_html=True)
+                    st.markdown("<h3 style='color:#facc15; font-weight:700; margin-top:20px;'>🤖 Generative AI Synthesis (Dual Hypotheses)</h3>", unsafe_allow_html=True)
                     
                     for i, cand in enumerate(resp.candidates, 1):
                         if cand.content.parts:
@@ -247,7 +256,7 @@ if submit_btn:
 # ---------------------------
 # Footer Project Notes
 # ---------------------------
-st.markdown("<br><hr style='border-color:#1e293b;'>", unsafe_allow_html=True)
+st.markdown("<br><hr style='border-color:#2d3748;'>", unsafe_allow_html=True)
 with st.sidebar:
     st.markdown("<br><br><br>", unsafe_allow_html=True)
     st.info(
