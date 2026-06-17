@@ -1,2 +1,19 @@
 Artificial Intelligence (AI) and Computer Vision are transforming the educational landscape by enabling advanced real-time monitoring systems. One key framework in AI is Retrieval-Augmented Generation (RAG), which optimizes the outputs of Large Language Models (LLMs) by referencing an authoritative, external knowledge base before generating a response. This allows the system to remain contextually accurate and highly reliable.
 In such architectures, vector libraries like FAISS (Facebook AI Similarity Search) are utilized to handle document-based retrieval efficiently. FAISS allows the local engine to search through high-dimensional vectors of documents quickly. When a query is made, the system fetches the most relevant document chunks from the local index and passes them as context to the AI model. This entire pipeline guarantees that the system delivers precise, tokenized answers based directly on the provided data without relying purely on external cloud services.
+======================================================================
+ARTIFICIAL INTELLIGENCE & COMPUTER VISION KNOWLEDGE BASE
+======================================================================
+Artificial Intelligence (AI) components often rely on Deep Learning architectures like Convolutional Neural Networks (CNN). In real-time computer vision applications—such as classroom emotion detection or educational monitoring—CNN layers extract spatial features from video streams to classify expressions in real time. 
+
+Large Language Models (LLMs) can suffer from hallucinations, which is why Retrieval-Augmented Generation (RAG) is critical. RAG fetches relevant textual context using vector similarity matching (such as FAISS) before sending the prompt to generative engines like Google Gemini API, ensuring the chatbot remains contextually accurate.
+
+======================================================================
+PARALLEL AND DISTRIBUTED COMPUTING (PDC) KNOWLEDGE BASE
+======================================================================
+Parallel and Distributed Computing (PDC) focuses on breaking down large computational tasks into smaller parts that can be executed simultaneously across multiple processors or distributed nodes. 
+
+Key concepts in PDC include:
+1. Shared Memory vs. Distributed Memory: Shared memory systems allow multiple processors to access the same memory space, often managed using OpenMP. Distributed memory systems require explicit message passing between independent nodes, typically implemented via MPI (Message Passing Interface).
+2. Amdahl's Law: This law predicts the theoretical speedup of a program using multiple processors, stating that the speedup is limited by the sequential (serial) portion of the program.
+3. Concurrency and Synchronization: Managing data race conditions, deadlocks, and semaphores when multiple threads or processes execute in parallel.
+4. GPU Computing: Utilizing thousands of smaller cores in a Graphics Processing Unit to accelerate parallel tasks like training deep learning models or processing high-resolution video frames in computer vision.
