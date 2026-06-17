@@ -55,26 +55,26 @@ model = load_model()
 # ---------------------------
 st.set_page_config(page_title="RAG Intelligence Hub", layout="wide")
 
-# Dark CSS Matrix Engine
+# Dark CSS Matrix Engine (Only Colors Refined)
 st.markdown("""
     <style>
-    /* Pure Deep Dark Background */
+    /* Premium Slate Cyber-Dark Background */
     .stApp {
-        background-color: #0b0f19 !important;
-        color: #f1f5f9 !important;
+        background-color: #0f172a !important;
+        color: #f8fafc !important;
     }
     
-    /* Left Sidebar Custom Dark Styling */
+    /* Left Sidebar Deep Blue-Grey Dark Styling */
     section[data-testid="stSidebar"] {
-        background-color: #060913 !important;
-        border-right: 1px solid #1e293b !important;
+        background-color: #0b0f19 !important;
+        border-right: 1px solid #334155 !important;
     }
     
     /* Typography Gradient Titles */
     .main-title {
         font-size: 36px;
         font-weight: 800;
-        background: linear-gradient(90deg, #38bdf8, #a855f7);
+        background: linear-gradient(90deg, #06b6d4, #8b5cf6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 5px;
@@ -87,31 +87,31 @@ st.markdown("""
     
     /* Dynamic UI Glowing Badges */
     .badge-local {
-        background-color: rgba(56, 189, 248, 0.12);
-        color: #38bdf8;
+        background-color: rgba(6, 182, 212, 0.15);
+        color: #22d3ee;
         padding: 6px 14px;
         border-radius: 20px;
         font-weight: 600;
         font-size: 13px;
         display: inline-block;
-        border: 1px solid #0284c7;
+        border: 1px solid #0891b2;
     }
     .badge-gemini {
-        background-color: rgba(168, 85, 247, 0.12);
-        color: #c084fc;
+        background-color: rgba(139, 92, 246, 0.15);
+        color: #ddd6fe;
         padding: 6px 14px;
         border-radius: 20px;
         font-weight: 600;
         font-size: 13px;
         display: inline-block;
-        border: 1px solid #7e22ce;
+        border: 1px solid #6d28d9;
     }
     
     /* Input Field Theme Corrections */
     .stTextInput>div>div>input {
-        background-color: #111827 !important;
-        color: #f8fafc !important;
-        border: 1px solid #334155 !important;
+        background-color: #1e293b !important;
+        color: #ffffff !important;
+        border: 1px solid #475569 !important;
         border-radius: 6px !important;
     }
     
@@ -142,10 +142,10 @@ st.markdown("""
     
     /* Response Output Box */
     .answer-card {
-        background-color: #111827;
+        background-color: #1e293b;
         padding: 16px;
         border-radius: 8px;
-        border-left: 4px solid #a855f7;
+        border-left: 4px solid #8b5cf6;
         color: #e2e8f0;
         margin-bottom: 15px;
     }
@@ -179,7 +179,7 @@ max_chars = st.sidebar.slider(
 # ---------------------------
 # Main Dashboard UI
 # ---------------------------
-st.markdown("<div class='main-title'>🌐 AI Assistant PDC</div>", unsafe_allow_html=True)
+st.markdown("<div class='main-title'>🌐 Ai Assistant PDC </div>", unsafe_allow_html=True)
 st.markdown("<div class='sub-title'>Advanced Retrieval-Augmented Generation (RAG) System — Developed by Muzammil (CCP Project)</div>", unsafe_allow_html=True)
 
 # Dynamic Badge Display
