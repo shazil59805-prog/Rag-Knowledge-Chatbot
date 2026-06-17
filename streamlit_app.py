@@ -101,7 +101,7 @@ if st.button("Get Answer"):
             st.subheader("📖 Local Context Retrieved")
             for rank, idx in enumerate(I[0], 1):
                 with st.expander(f"🔍 Relevant Reference Source {rank}"):
-                    # Is line se text ka size normal (15px) aur clean ho jayega
+                    # max_chars hata diya hai, ab poora paragraph bina kate normal font mein dikhega
                     st.markdown(f"<div style='font-size:15px; line-height:1.6; color:#1e293b;'>{chunks[idx]}</div>", unsafe_allow_html=True)
                 
         elif mode.startswith("Gemini"):
