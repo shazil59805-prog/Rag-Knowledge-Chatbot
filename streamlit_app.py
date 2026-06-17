@@ -1,11 +1,10 @@
 import streamlit as st
 import faiss, pickle, os
 from sentence_transformers import SentenceTransformer
-
+import os
 if not os.path.exists("index"):
     import build_index
     build_index.build_index(data_dir="data", index_dir="index")
-
 # ✅ Gemini import
 import google.generativeai as genai  
 
@@ -99,13 +98,13 @@ if st.button("Get Answer"):
             q_emb = model.encode([query], convert_to_numpy=True)
             D, I = index.search(q_emb.astype("float32"), k=n_pages)
 
-            st.subheader("📖 Local Context Retrieved")
+            st.subheader("📖 Local Engine Results")
             for rank, idx in enumerate(I[0], 1):
-                with st.expander(f"🔍 Relevant Reference Source {rank}"):
-                    full_text = chunks[idx]
-                    st.write(full_text)
-                    
-        elif mode.startswith("Gemini"):
+                st.markdown(f"**Result {rank}:**")
+                st.write(chunks[idx][:max_chars] + ("..." if len(chunks[idx]) > max_chars else ""))
+                st.markdown("---")
+                
+      elif mode.startswith("Gemini"):
             # ✅ Direct Gemini API call with 2 answers + links
             try:
                 api_key = os.environ.get("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY")
@@ -113,10 +112,10 @@ if st.button("Get Answer"):
                     st.error("❌ Gemini API key not found. Please set GEMINI_API_KEY in secrets.")
                 else:
                     genai.configure(api_key=api_key)
-                    gemini_model = genai.GenerativeModel("gemini-2.5-flash")
+                    model = genai.GenerativeModel("gemini-2.5-flash")
 
                     # multiple answers (2 candidates) + request for links
-                    resp = gemini_model.generate_content(
+                    resp = model.generate_content(
                         f"{query}\n\nPlease also provide source links or references if possible.",
                         generation_config={"candidate_count": 2}
                     )
