@@ -189,7 +189,7 @@ max_chars = st.sidebar.slider(
 # Main Dashboard UI
 # ---------------------------
 st.markdown("<div class='main-title'>🌐 PDC Distributed Architecture Knowledge Base</div>", unsafe_allow_html=True)
-st.markdown("<div class='sub-title'>Advanced Retrieval-Augmented Generation (RAG) System — Developed by Muzammil (CCP Project)</div>", unsafe_allow_html=True)
+st.markdown("<div class='sub-title'>Advanced Retrieval-Augmented Generation (RAG) System — Developed by Shazil (CCP Project)</div>", unsafe_allow_html=True)
 
 # Dynamic Badge Display
 if "Direct" in mode:
