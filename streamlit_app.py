@@ -93,7 +93,7 @@ if st.button("Get Answer"):
     if query.strip() == "":
         st.warning("⚠️ Please enter a question.")
     else:
-        if mode.startswith("Direct") and index is not None:
+       if mode.startswith("Direct") and index is not None:
             # Local FAISS search
             q_emb = model.encode([query], convert_to_numpy=True)
             D, I = index.search(q_emb.astype("float32"), k=n_pages)
@@ -101,7 +101,9 @@ if st.button("Get Answer"):
             st.subheader("📖 Local Context Retrieved")
             for rank, idx in enumerate(I[0], 1):
                 with st.expander(f"🔍 Relevant Reference Source {rank}"):
-                    st.markdown(f"<div style='font-size:15px; line-height:1.6; color:#1e293b;'>{chunks[idx]}</div>", unsafe_allow_html=True)
+                    # Chunks ka variable directly bina kisi slicing ke pure format mein show hoga
+                    full_text = chunks[idx]
+                    st.write(full_text)
                 
         elif mode.startswith("Gemini"):
             # ✅ Direct Gemini API call with 2 answers + links
