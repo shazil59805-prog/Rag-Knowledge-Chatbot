@@ -99,11 +99,9 @@ if st.button("Get Answer"):
             D, I = index.search(q_emb.astype("float32"), k=n_pages)
 
             st.subheader("📖 Local Context Retrieved")
-for rank, idx in enumerate(I[0], 1):
-    # Ek pyara sa dropdown box banaye ga taake data bikhra hua na lage
-    with st.expander(f"🔍 Relevant Reference Source {rank}"):
-        # Yeh poora chunk bina kate (max_chars ke bagair) info box mein dikhaye ga
-        st.info(chunks[idx])
+            for rank, idx in enumerate(I[0], 1):
+        with st.expander(f"🔍 Relevant Reference Source {rank}"):
+                st.info(chunks[idx])
 
         elif mode.startswith("Gemini"):
             # ✅ Direct Gemini API call with 2 answers + links
