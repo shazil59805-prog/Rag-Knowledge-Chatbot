@@ -104,7 +104,7 @@ if st.button("Get Answer"):
                     full_text = chunks[idx]
                     st.write(full_text)
                 
-        elif mode.startswith("Gemini"):
+      elif mode.startswith("Gemini"):
             # ✅ Direct Gemini API call with 2 answers + links
             try:
                 api_key = os.environ.get("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY")
