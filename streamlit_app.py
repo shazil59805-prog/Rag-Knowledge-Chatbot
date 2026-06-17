@@ -98,11 +98,12 @@ if st.button("Get Answer"):
             q_emb = model.encode([query], convert_to_numpy=True)
             D, I = index.search(q_emb.astype("float32"), k=n_pages)
 
-            st.subheader("📖 Local Engine Results")
-            for rank, idx in enumerate(I[0], 1):
-                st.markdown(f"**Result {rank}:**")
-                st.write(chunks[idx][:max_chars] + ("..." if len(chunks[idx]) > max_chars else ""))
-                st.markdown("---")
+            st.subheader("📖 Local Context Retrieved")
+for rank, idx in enumerate(I[0], 1):
+    # Ek pyara sa dropdown box banaye ga taake data bikhra hua na lage
+    with st.expander(f"🔍 Relevant Reference Source {rank}"):
+        # Yeh poora chunk bina kate (max_chars ke bagair) info box mein dikhaye ga
+        st.info(chunks[idx])
 
         elif mode.startswith("Gemini"):
             # ✅ Direct Gemini API call with 2 answers + links
